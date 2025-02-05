@@ -20,11 +20,5 @@ This is a React-based web application that fetches and displays products from th
 - Tailwind CSS
 - React Toastify
 
-## Installation
 
-To get started with this project, follow these steps:
-
-1. **Clone the repository**:
-   
-   git clone https://github.com/yourusername/products-fetching-app.git
 
