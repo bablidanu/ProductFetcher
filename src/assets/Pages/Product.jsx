@@ -11,6 +11,7 @@ const reducer = (state, action) => {
     return { ...state, products: payload, loading: false };
   else if (type === "error") return { ...state, loading: false, error: true };
 };
+
 const initialState = {
   products: [],
   loading: true,
@@ -20,6 +21,7 @@ const initialState = {
 const Product = () => {
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -35,7 +37,7 @@ const Product = () => {
         });
       } catch (error) {
         dispatch({ type: "error" });
-        toast.error("error!!!", {
+        toast.error("Error fetching products!", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -49,17 +51,19 @@ const Product = () => {
   }, []);
 
   const { products, loading, error } = state;
+
   if (error) {
     setTimeout(() => {
       navigate("/");
     }, 2000);
   }
+
   return (
-    <div className="flex justify-center flex-wrap gap-8">
+    <div className="flex justify-center flex-wrap gap-8 p-4">
       {loading && <p>Loading...</p>}
-      {error && <p>Error</p>}
-      {products.map((product, index) => (
-        <Products key={index} product={product} />
+      {error && <p>Error fetching products</p>}
+      {products.map((product) => (
+        <Products key={product.id} product={product} />
       ))}
       <ToastContainer />
     </div>

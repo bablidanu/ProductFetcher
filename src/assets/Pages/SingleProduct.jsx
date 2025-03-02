@@ -31,7 +31,7 @@ const SingleProduct = () => {
           dispatch({ type: "success", payload: response.data });
         })
         .catch((err) => {
-          toast.error("error!! pls try later", {
+          toast.error("Error! Please try later", {
             position: "top-center",
             autoClose: 1000,
             hideProgressBar: false,
@@ -48,33 +48,31 @@ const SingleProduct = () => {
 
   const { loading, product } = state;
   return (
-    <div className="">
+    <div className="p-4">
       {loading ? (
-        <h2>loading...</h2>
+        <h2>Loading...</h2>
       ) : (
-        <div className="pt-10 pb-[150px]">
-          <div className="mx-[9vw] flex gap-10">
-            <div>
-              <img
-                className="max-w-xs"
-                src={product.image}
-                alt="product image"
-              ></img>
-            </div>
-            <div className="flex flex-col gap-8 ml-12">
-              <h2 className="mt-10 text-5xl font-semibold text-white">
-                {product.title}
-              </h2>
-              <h2 className=" text-xl font-normal  text-white ">
-                {product.description}
-              </h2>
-              <p className="text-normal font-normal text-white ">
-                $ {product.price}
-              </p>
-              <button className="bg-yellow-300 p-4 hover:bg-white rounded-full">
-                Add to cart
-              </button>
-            </div>
+        <div className="pt-10 pb-24 flex flex-wrap items-center justify-center">
+          <div className="max-w-xs w-full md:w-1/2 lg:w-1/3 p-2">
+            <img
+              className="w-full object-cover rounded-md"
+              src={product.image}
+              alt="Product Image"
+            />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-2/3 p-2 flex flex-col items-center md:items-start text-center md:text-left">
+            <h2 className="mt-4 text-3xl font-semibold text-white">
+              {product.title}
+            </h2>
+            <h2 className="text-xl font-normal text-white mt-2">
+              {product.description}
+            </h2>
+            <p className="text-xl font-semibold text-white mt-2">
+              $ {product.price}
+            </p>
+            <button className="bg-yellow-300 p-4 mt-4 hover:bg-white rounded-full">
+              Add to cart
+            </button>
           </div>
         </div>
       )}

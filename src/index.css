@@ -7,6 +7,15 @@
   background: #112e42;
 }
 
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4; /* Change this to 5 for 5 lines */
+  line-height: 1.5; /* Adjust line height as needed */
+  max-height: 6em; /* Adjust based on line height and number of lines */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

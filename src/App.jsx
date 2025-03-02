@@ -18,7 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/products" element={<Product />}></Route>
         <Route path="/singleproduct/:id" element={<SingleProduct />}></Route>
-        <Route path="*" element={<p>Error 404!!!</p>}></Route>
+        <Route path="*" element={<Home />}></Route>
       </Routes>
     </BrowserRouter>
   );
